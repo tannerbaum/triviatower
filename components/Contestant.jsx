@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import Image from "next/image";
-import styles from "./contestant.module.css";
+import styles from "./Contestant.module.css";
 
 const Contestant = ({
   id,
