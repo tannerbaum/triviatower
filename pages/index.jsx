@@ -1,7 +1,6 @@
 import react, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import firebase from "../firebase/clientApp";
@@ -237,6 +236,13 @@ export default function Home() {
 
           footer{
             padding: 1rem 2rem;
+          }
+        }
+
+        @media (min-width: 1200px) { 
+          .banner{
+            width: 70%;
+            margin: 0 auto;
           }
         }
       `}</style>
