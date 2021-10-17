@@ -68,14 +68,14 @@ export default function Home() {
             format.
           </p>
           <p>
-            This website was not made by an employee of Minnmax, bust just a
-            fan/patron who saw people trying to bet on their favorites and
+            This website was not made by an employee of Minnmax, just a
+            fan/patron who saw people trying to bet on their favorites on Twitter and
             thought he would put something together in a few hours. You can
             select who you think will win below and afterwards see who others
             have picked.{" "}
           </p>
         </div>
-        { selected ? (<h2>Live results</h2>) : (<h2>Predict the winner!</h2>) }      
+        { selected ? (<h2>Live results (Top 10)</h2>) : (<h2>Predict the winner!</h2>) }      
         {selected && contestantData && (
           <div className="resultsTable">
             <div className="result header">
@@ -84,7 +84,9 @@ export default function Home() {
             </div>
             {Object.values(contestantData).sort((a,b) => {
               return b.votes - a.votes;
-            }).map((contestant) => {
+            })
+            .slice(0, 10)
+            .map((contestant) => {
               const yourVote = contestant.id == window.localStorage.getItem(LOCALSTORAGE_KEY);
               return (
                 <div className="result">
