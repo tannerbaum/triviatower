@@ -84,9 +84,30 @@ export default function Home() {
             select who you think will win below and afterwards see who others
             have picked.{" "}
           </p>
+          <p><a href="#support" style={{color: "var(--text-orange)"}}>Skip to support votes</a></p>
         </div>
-        { selected ? (<h2>Live results (Top 10)</h2>) : (<h2>Predict the winner!</h2>) }      
-        {selected && contestantData && (
+        <h2>Predict the winner!</h2>
+          <div className="roster">
+            {CONTESTANTS.map((contestant, index) => {
+              const { id, fullname, from, charity, picture } = contestant;
+
+              return (
+                <Contestant
+                  key={index}
+                  id={id}
+                  picture={picture}
+                  fullname={fullname}
+                  from={from}
+                  charity={charity}
+                  isSelected={activeContestant == id}
+                  select={handleSelect}
+                  confirm={handleConfirm}
+                />
+              );
+            })}
+          </div>
+        <h2 id="support">Live results (Top 10)</h2>
+        {contestantData && (
           <div className="resultsTable">
             <div className="result header">
               <div>Name</div>
@@ -110,27 +131,6 @@ export default function Home() {
               );
             })}
             <div style={{ textAlign: "right", fontStyle: "italic", margin: "8px 6px 0 0"}}>Bolded is your pick</div>
-          </div>
-        )}
-        {!selected && (
-          <div className="roster">
-            {CONTESTANTS.map((contestant, index) => {
-              const { id, fullname, from, charity, picture } = contestant;
-
-              return (
-                <Contestant
-                  key={index}
-                  id={id}
-                  picture={picture}
-                  fullname={fullname}
-                  from={from}
-                  charity={charity}
-                  isSelected={activeContestant == id}
-                  select={handleSelect}
-                  confirm={handleConfirm}
-                />
-              );
-            })}
           </div>
         )}
       </main>
