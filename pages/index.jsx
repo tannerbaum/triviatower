@@ -281,6 +281,10 @@ export default function Home() {
             width: 50%;
             margin: 0 auto;
           }
+
+          .info{
+            width: 50%;
+          }
         }
       `}</style>
 
