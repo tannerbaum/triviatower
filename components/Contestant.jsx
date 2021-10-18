@@ -10,6 +10,7 @@ const Contestant = ({
   picture,
   isSelected,
   select,
+  disabled,
   confirm
 }) => {
   const [username, setUsername] = useState("");
@@ -55,8 +56,8 @@ const Contestant = ({
             <input className={styles.confirm} type="submit" value="Confirm" />
           </form>
         ) : (
-          <button className={styles.vote} onClick={() => select(id)}>
-            Select
+          <button className={styles.vote} disabled={disabled} onClick={() => select(id)}>
+            {disabled ? "Already Voted" : "Select"}
           </button>
         )}
       </div>

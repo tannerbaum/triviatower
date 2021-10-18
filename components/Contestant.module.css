@@ -46,6 +46,13 @@
   padding: 7px 0px;
 }
 
+.vote:disabled {
+  cursor: not-allowed;
+  background-color: white;
+  color: var(--main-orange);
+  border: 2px solid var(--main-orange);
+}
+
 .confirm {
   border: 2px solid var(--main-orange);
   border-radius: 4px;
