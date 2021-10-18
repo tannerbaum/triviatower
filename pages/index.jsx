@@ -51,6 +51,16 @@ export default function Home() {
       <Head>
         <title>MinnMax Trivia Tower All-Stars!</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta name="description" content="Trivia Tower: All-Stars is the biggest cross-over event in games media history. 24 people from games coverage enter, and only one person will win $1,000 for a charity of their choice." />
+        <meta property="og:title" content="MinnMax Trivia Tower All-Stars!" />
+        <meta property="og:description" content="Trivia Tower: All-Stars is the biggest cross-over event in games media history. 24 people from games coverage enter, and only one person will win $1,000 for a charity of their choice." />
+        <meta property="og:image" content="https://triviatower.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2Ftriviatower.3d328745d1456b11d96511f504d1e440.png&w=3840&q=75" />
+        <meta property="og:image:alt" content="Trivia Tower AllStars logo" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:url" content="https://triviatower.vercel.app/" />
       </Head>
 
       <main>
@@ -268,7 +278,7 @@ export default function Home() {
 
         @media (min-width: 1200px) { 
           .banner{
-            width: 70%;
+            width: 50%;
             margin: 0 auto;
           }
         }
