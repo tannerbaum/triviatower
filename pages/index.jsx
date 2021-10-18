@@ -87,11 +87,15 @@ export default function Home() {
             })
             .slice(0, 10)
             .map((contestant) => {
+              const contestantPicture = CONTESTANTS.find((current) => current.id === contestant.id)?.picture;
               const yourVote = contestant.id == window.localStorage.getItem(LOCALSTORAGE_KEY);
               return (
                 <div className="result">
-                    <div><span className={yourVote && "yourVote"}>{contestant.name}</span></div>
-                    <div>{contestant.votes}</div>
+                    <div className="miniProfile">
+                      <Image src={contestantPicture} layout="fixed" width="40px" height="40px" />
+                      <span className={yourVote && "yourVote"}>{contestant.name}</span>
+                    </div>
+                    <div className="voteCount">{contestant.votes}</div>
                 </div>
               );
             })}
@@ -159,17 +163,37 @@ export default function Home() {
           gap: 20px 60px;
         }
 
-        .resultsTable{}
+        .resultsTable{
+          width: 50%;
+          margin: 0 auto;
+        }
 
         .header{
           font-weight: 600;
-          border-bottom: 2px solid black;
         }
 
         .result{
           display: flex;
           justify-content: space-between; 
-          margin-bottom: 8px;
+          padding: 10px 0;
+        }
+
+        .result:nth-child(even) {
+          background-color: #e0dede;
+        }
+
+        .miniProfile{
+          display: flex;
+          align-items: center;
+        }
+
+        .miniProfile span{
+          margin-left: 10px;
+        }
+
+        .voteCount{
+          align-self: center;
+          padding-right: 6px;
         }
 
         .yourVote{
@@ -191,7 +215,8 @@ export default function Home() {
 
         footer {
           padding: 2rem 5rem;
-          width: 100%;
+          width: 80%;
+          margin: 0 auto;
           height: 100px;
           border-top: 1px solid #eaeaea;
         }
